@@ -16,6 +16,7 @@ describe('Orange TEST', () => {
     genericField:".oxd-input--active",
     dateField:"[placeholder='yyy-mm-dd']",
     dateCloseButton:".--close",
+    dataOptions: ".oxd-select-text--arrow",
     submitButton: "[type='submit']",
 
   }
@@ -37,8 +38,11 @@ describe('Orange TEST', () => {
     cy.get(selectorsList.genericField).eq(7).clear().type('2025-12-12')
     cy.get(selectorsList.dateCloseButton).click()
     cy.get(selectorsList.genericField).eq(6).clear().type('DriversLicTest')
+    cy.get(selectorsList.dataOptions).eq(0).type('z').click()
+    cy.get(selectorsList.dataOptions).eq(1).type('o').click()
     cy.get(selectorsList.submitButton).eq(0).click()
     cy.get('body').should('contain','Successfully Update')
+    cy.get('.oxd-toast-close')
 
 
 
