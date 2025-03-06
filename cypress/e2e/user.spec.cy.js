@@ -1,13 +1,15 @@
 import userData from '../fixtures/user-data.json'
-import LoginPage from '../pages/loginPage.js'
+import LoginPage from '../pages/loginPage'
+import DashboardPage from '../pages/dashboardPage'
 
 const loginpage = new LoginPage()
+const DashboardPage = new DashboardPage()
+
 describe('Orange TEST', () => {
 
   const selectorsList = {
-    sectionTitleTopBar: '.oxd-topbar-header-breadcrumb-module',
-    dashBoardGrid: ".orangehrm-dashboard-grid",
-    myInfoButton: '[href="/web/index.php/pim/viewMyDetails"]',
+    
+    
     firstNameField:"[name='firstName']",
     middleNameField: "[name='middleName']",
     lastNameField:"[name='lastName']",
@@ -23,12 +25,9 @@ describe('Orange TEST', () => {
     loginpage.accessLoginPage()
     loginpage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
 
-    // cy.get(selectorsList.usernameField).type(userData.userSuccess.username)
-    // cy.get(selectorsList.passwordField).type(userData.userSuccess.password)
-    // cy.get(selectorsList.loginButton).click()
-    cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
-    cy.get(selectorsList.dashBoardGrid)
-    cy.get(selectorsList.myInfoButton).click()
+    DashboardPage.checkDashboardPage()
+
+    cy.get(selectorsList.myInfoButton).click()000
     cy.get(selectorsList.firstNameField).clear().type('Dodge')
     cy.get(selectorsList.middleNameField).clear().type('Rampage')
     cy.get(selectorsList.lastNameField).clear().type('trirthfive')
