@@ -20,9 +20,8 @@ describe('Orange TEST', () => {
     loginpage.loginWithAnyUser(userData.userSuccess.username, userData.userSuccess.password)
 
     DashboardPage.checkDashboardPage()
-    //alterac 01
     MenuPage.accessMyInfo()
-    //alterac 02
+    
 
     MyInfoPage.fillPersonalDetails(chance.first(), chance.last(), chance.string())
     MyInfoPage.fillEmployeeDetails('EmployId', 'otherId', '2025-07-29', '123456', '0987654')
@@ -30,9 +29,6 @@ describe('Orange TEST', () => {
     MyInfoPage.fillStatus()
     MyInfoPage.saveForm() 
   
-    
-
-
   })
     
 })
