@@ -12,3 +12,5 @@ class DashboardPage {
         cy.get(this.selectorList().dashBoardGrid).should('be.visible')
     }
 }
+
+export default DashboardPage

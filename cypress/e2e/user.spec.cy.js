@@ -15,19 +15,19 @@ const myInfoPage = new MyInfoPage()
 describe('Orange TEST', () => {
 
 
-  it('User Info Update - success', () => {
-    loginpage.accessLoginPage()
-    loginpage.loginWithAnyUser(userData.userSuccess.username, userData.userSuccess.password)
-
-    DashboardPage.checkDashboardPage()
-    MenuPage.accessMyInfo()
+  it.only('User Info Update - success', () => {
+    loginPage.accessLoginPage()
+    loginPage.loginWithAnyUser(userData.userSuccess.username, userData.userSuccess.password)
     
-
-    MyInfoPage.fillPersonalDetails(chance.first(), chance.last(), chance.string())
-    MyInfoPage.fillEmployeeDetails('EmployId', 'otherId', '2025-07-29', '123456', '0987654')
+    dashboardPage.checkDashboardPage()
+    
+    menuPage.accessMyInfo()
+    
+    myInfoPage.fillPersonalDetails(chance.first(), chance.last(), chance.string())
+    myInfoPage.fillEmployeeDetails('EmployId', 'otherId', '2025-07-29', '2000-10-11', '0987654')
     //cy.get(selectorsList.myInfoButton).click()000   dentro do menuPage.js
-    MyInfoPage.fillStatus()
-    MyInfoPage.saveForm() 
+    myInfoPage.fillStatus()
+    myInfoPage.saveForm()
   
   })
     

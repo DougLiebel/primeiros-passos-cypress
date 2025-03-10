@@ -1,14 +1,16 @@
-class LoginPage{
+class LoginPage {
+
     selectorsList() {
         const selectors = {
             usernameField: "[name='username']",
             passwordField: "[name='password']",
             loginButton: "[type='submit']",
-            wrongCredentialAlert: '.oxd-alert',
+            wrongCredentialAlert: "[role='alert']",
         }
         return selectors
     } 
-    accessLoginPage(){
+    
+    accessLoginPage() {
         cy.visit('/auth/login')        
     }   
     loginWithAnyUser(username, password) {
@@ -16,7 +18,7 @@ class LoginPage{
         cy.get(this.selectorsList().passwordField).type(password)
         cy.get(this.selectorsList().loginButton).click()
     }
-    checkAccessInvalid(){
+    checkAccessInvalid() {
         cy.get(this.selectorsList().wrongCredentialAlert)
     }
 }
